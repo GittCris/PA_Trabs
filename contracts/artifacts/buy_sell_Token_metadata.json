@@ -135,6 +135,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "getTokenBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "maxTokensPerAddress",
 				"outputs": [
 					{
@@ -408,11 +421,11 @@
 			]
 		},
 		"contracts/BuyToken.sol": {
-			"keccak256": "0x727bc36c60ff78b06c9423b23ccc1d3c9152ffc993720d9b0dbc74b9a202563c",
+			"keccak256": "0xd79658ea6dce414adac2ad5a76af6303a13835bfa60d6ea048b4a8f9b637becd",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://706aaa6f2c3b22c233dac04b282c165cbf2b201d8df076603bf997faa0f61eb6",
-				"dweb:/ipfs/QmfFHhK1fwPJo6Qc4cX3ntLtqto5ZcPRigRWMqMMv18Z36"
+				"bzz-raw://b651750461d630129ee3f0b7bc6d198256f0c243c091540af6b914bd7b9c4094",
+				"dweb:/ipfs/QmQfspN8vUSUzLbK9HjFfLPTsvKX9gXxyJ9iYDEeQ1dxvd"
 			]
 		},
 		"contracts/MinervaToken.sol": {
