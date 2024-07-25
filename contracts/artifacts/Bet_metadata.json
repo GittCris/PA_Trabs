@@ -1,0 +1,211 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "_token",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "addressPlayer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "valueToPay",
+						"type": "uint256"
+					}
+				],
+				"name": "Winner",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_scoreTeam1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_scoreTeam2",
+						"type": "uint256"
+					}
+				],
+				"name": "bet",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "depositTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_scoreTeam1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_scoreTeam2",
+						"type": "uint256"
+					}
+				],
+				"name": "payWinners",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "playerBets",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "addressPlayer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "scoreTeam1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "scoreTeam2",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "betValue",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalBetAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalBetValue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/bet.sol": "Bet"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/bet.sol": {
+			"keccak256": "0x6608b4de9a55682c82906159fbd1c17b3c15ac284634b00a928c46853ef47adb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3f1ef98e1adafafe1ccd4598a6af68d1c73e30f555792632fedb669f7ecf42b7",
+				"dweb:/ipfs/QmbM4MiLCziD9zfHqxQxPHuCp5HR3QEj1KcZiC9Mmy56hw"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "initialSupply",
+						"name": "_initialSupply",
 						"type": "uint256"
 					}
 				],
@@ -17,56 +17,6 @@
 				"type": "constructor"
 			},
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "owner",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "spender",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					}
-				],
-				"name": "Approval",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					}
-				],
-				"name": "Transfer",
-				"type": "event"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -79,7 +29,7 @@
 						"type": "address"
 					}
 				],
-				"name": "allowance",
+				"name": "allowed",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -94,12 +44,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_spender",
+						"name": "spender",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_value",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -107,7 +57,7 @@
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "success",
+						"name": "",
 						"type": "bool"
 					}
 				],
@@ -118,7 +68,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "account",
 						"type": "address"
 					}
 				],
@@ -134,13 +84,19 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "decimals",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balances",
 				"outputs": [
 					{
-						"internalType": "uint8",
+						"internalType": "uint256",
 						"name": "",
-						"type": "uint8"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -189,12 +145,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_to",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_value",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -202,7 +158,7 @@
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "success",
+						"name": "",
 						"type": "bool"
 					}
 				],
@@ -213,17 +169,17 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_from",
+						"name": "sender",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_to",
+						"name": "recipient",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_value",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -231,7 +187,7 @@
 				"outputs": [
 					{
 						"internalType": "bool",
-						"name": "success",
+						"name": "",
 						"type": "bool"
 					}
 				],
@@ -252,9 +208,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/MileExchangeBetweenUsers.sol": "MileSystem"
+			"contracts/MyToken.sol": "MyToken"
 		},
-		"evmVersion": "london",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -266,12 +222,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/MileExchangeBetweenUsers.sol": {
-			"keccak256": "0x2351d06021a1ae4af1922cbfbd83cdd1edf37edfc359b073ae82972ea11a2d7b",
+		"contracts/IERC20.sol": {
+			"keccak256": "0xbe1d76f366a39737d94fbb8c34680143152052c9fb50ed5071bd4d79f441b0e6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8b1b9bf8f3ed169ef2bdfc7fa6f535d48d376a503bcefe72ac0d912f2467a797",
-				"dweb:/ipfs/QmYuHXgzkyuCm8XtqTpPaUjimQLaNi2f9ViNSLavQApgck"
+				"bzz-raw://6724c576172b06c8b13618df82142a0c776b5707a6c247a7c3695674181eb1c9",
+				"dweb:/ipfs/QmNcPbXf1A3ewmufhTF32BrR5e5FTmibu5Z47aCVj3uthX"
+			]
+		},
+		"contracts/MyToken.sol": {
+			"keccak256": "0x8673a0546c78ab42a1ca3491c06663cfa86f57f4b55c538131035f6b8c6ce7cd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://cccb4056c4aa5b20ef67e010543eadad5a0b922ec58b57cbe92a5b790e321787",
+				"dweb:/ipfs/QmUw2iyNCj5jfkuyND2xdM7XjABpNmeicoU42TYQhgCoBj"
 			]
 		}
 	},

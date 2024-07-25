@@ -1,22 +1,11 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "contract MileSystem",
-						"name": "_mileSystem",
-						"type": "address"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -24,27 +13,9 @@
 						"internalType": "uint256",
 						"name": "offerId",
 						"type": "uint256"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "offerer",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "acceptor",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
 					}
 				],
-				"name": "OfferAccepted",
+				"name": "SwapOfferAccepted",
 				"type": "event"
 			},
 			{
@@ -55,15 +26,9 @@
 						"internalType": "uint256",
 						"name": "offerId",
 						"type": "uint256"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "offerer",
-						"type": "address"
 					}
 				],
-				"name": "OfferCancelled",
+				"name": "SwapOfferCanceled",
 				"type": "event"
 			},
 			{
@@ -83,29 +48,47 @@
 					},
 					{
 						"indexed": false,
+						"internalType": "address",
+						"name": "tokenOffered",
+						"type": "address"
+					},
+					{
+						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "amountOffered",
 						"type": "uint256"
 					},
 					{
-						"indexed": true,
+						"indexed": false,
 						"internalType": "address",
-						"name": "requestedFrom",
+						"name": "tokenRequested",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountRequested",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "recipient",
 						"type": "address"
 					}
 				],
-				"name": "OfferCreated",
+				"name": "SwapOfferCreated",
 				"type": "event"
 			},
 			{
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_offerId",
+						"name": "offerId",
 						"type": "uint256"
 					}
 				],
-				"name": "acceptOffer",
+				"name": "acceptSwapOffer",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -114,11 +97,11 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_offerId",
+						"name": "offerId",
 						"type": "uint256"
 					}
 				],
-				"name": "cancelOffer",
+				"name": "cancelSwapOffer",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -126,59 +109,44 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "tokenOffered",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
-						"name": "_amount",
+						"name": "amountOffered",
 						"type": "uint256"
 					},
 					{
 						"internalType": "address",
-						"name": "_requestedFrom",
+						"name": "tokenRequested",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountRequested",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
 						"type": "address"
 					}
 				],
-				"name": "createOffer",
+				"name": "createSwapOffer",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "getOffers",
+				"name": "nextOfferId",
 				"outputs": [
 					{
-						"components": [
-							{
-								"internalType": "address",
-								"name": "offerer",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "amount",
-								"type": "uint256"
-							},
-							{
-								"internalType": "address",
-								"name": "requestedFrom",
-								"type": "address"
-							}
-						],
-						"internalType": "struct MileExchangeBetweenUsers.Offer[]",
+						"internalType": "uint256",
 						"name": "",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "mileSystem",
-				"outputs": [
-					{
-						"internalType": "contract MileSystem",
-						"name": "",
-						"type": "address"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -192,7 +160,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "offers",
+				"name": "swapOffers",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -200,14 +168,39 @@
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "requestedFrom",
+						"name": "tokenOffered",
 						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenRequested",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountOffered",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountRequested",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "accepted",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "canceled",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -227,9 +220,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/MileExchangeBetweenUsers.sol": "MileExchangeBetweenUsers"
+			"contracts/MilesSwap.sol": "MilesSwap"
 		},
-		"evmVersion": "london",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -241,12 +234,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/MileExchangeBetweenUsers.sol": {
-			"keccak256": "0x2351d06021a1ae4af1922cbfbd83cdd1edf37edfc359b073ae82972ea11a2d7b",
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8b1b9bf8f3ed169ef2bdfc7fa6f535d48d376a503bcefe72ac0d912f2467a797",
-				"dweb:/ipfs/QmYuHXgzkyuCm8XtqTpPaUjimQLaNi2f9ViNSLavQApgck"
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"contracts/MilesSwap.sol": {
+			"keccak256": "0xa7dc1da22cff37de5539d1de2293f8a20437984a402846dfba8108a291d454a7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://37df496779c1aecaca4bf971fb7e5c201934cb024e361e18229ac7db33b1e70c",
+				"dweb:/ipfs/QmcVTaMwAYrcjiE4uZoDUiC5NtH1eXZADdRCT9SNg9QcFF"
 			]
 		}
 	},
